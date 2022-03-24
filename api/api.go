@@ -1,4 +1,4 @@
-package gophercise3
+package api
 
 import (
 	"encoding/json"

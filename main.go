@@ -1,10 +1,7 @@
 package main
 
-import (
-	"gophercise3"
-)
+import "api"
 
 func main() {
-	gophercise3.StartServer()
-
+	api.StartServer()
 }
