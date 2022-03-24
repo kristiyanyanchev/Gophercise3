@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"text/template"
 )
@@ -21,8 +22,8 @@ type story struct {
 func JsonToStoryMap(path string) map[string]story {
 
 	stories := map[string]story{}
-
 	jsonData, err := os.ReadFile(path)
+
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -33,12 +34,12 @@ func JsonToStoryMap(path string) map[string]story {
 	}
 	return stories
 }
-func StartServer() {
+func StartServer(port int64) {
 	mux := http.NewServeMux()
 
-	storiesMap := JsonToStoryMap("stories.json")
+	storiesMap := JsonToStoryMap("./api/stories.json")
 	mapHandler := MapHandler(storiesMap, mux)
-	http.ListenAndServe(":9019", mapHandler)
+	http.ListenAndServe(":"+strconv.FormatInt(port, 10), mapHandler)
 }
 
 func readTemplateFromFile(path string) string {
