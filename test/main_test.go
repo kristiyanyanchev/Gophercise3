@@ -1,13 +1,5 @@
 package test
 
-import (
-	"fmt"
-	"os"
-	"testing"
-
-	"github.com/kristiyanyanchev/Gophercise3/api"
-)
-
 // func TestNoEndpoint(t *testing.T) {
 // 	go api.StartServer()
 // 	internalNoEndpoint(t)
@@ -21,19 +13,3 @@ import (
 // 		t.Fatalf("Error status code is " + resp.Status)
 // 	}
 // }
-
-func TestJsonStoryMap_(t *testing.T) {
-	str := api.JsonToStoryMap("../api/stories.json")
-	if str == nil {
-		t.Fatal("cound open file")
-	}
-
-}
-func Test(t *testing.T) {
-	go func() {
-		fmt.Println("rts")
-		os.WriteFile("sss.txt", []byte("sea"), 777)
-		t.Errorf("str")
-	}()
-	fmt.Println("fta")
-}

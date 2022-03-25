@@ -19,6 +19,7 @@ type story struct {
 	} `json:"options"`
 }
 
+/// ssadsa
 func JsonToStoryMap(path string) map[string]story {
 
 	stories := map[string]story{}
